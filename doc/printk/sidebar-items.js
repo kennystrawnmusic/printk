@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["LockedPrintk","Memory safety: need to ensure that each instance is mutexed"],["Printk",""]]});
+initSidebarItems({"struct":[["LockedPrintk","Memory safety: need to ensure that each instance is mutexed"],["Printk","Structure to render characters to the framebuffer"]]});

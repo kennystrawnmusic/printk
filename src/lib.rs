@@ -88,6 +88,7 @@ impl log::Log for LockedPrintk {
     }
 }
 
+/// Structure to render characters to the framebuffer
 pub struct Printk {
     buffer: &'static mut [u8],
     info: FrameBufferInfo,
@@ -212,6 +213,7 @@ impl Printk {
     }
 
 
+    /// Prints an individual character on the screen
     pub fn putch(&mut self, c: char) {
         match c {
             '\n' => self.next_line(),

@@ -250,6 +250,8 @@
 <span id="245">245</span>
 <span id="246">246</span>
 <span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
 </pre><pre class="rust"><code><span class="doccomment">/*!
  A standalone, `#![no_std]`-friendly `Logger` crate.
  Based on the design of the logger built into `rust-osdev/bootloader` and can be used by default in any kernel.
@@ -340,6 +342,7 @@ pub fn printk_init(buffer: &amp;&#39;static mut [u8], info: FrameBufferInfo) {
     }
 }
 
+<span class="doccomment">/// Structure to render characters to the framebuffer</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Printk</span> {
     <span class="ident">buffer</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="kw-2">mut</span> [<span class="ident">u8</span>],
     <span class="ident">info</span>: <span class="ident">FrameBufferInfo</span>,
@@ -464,6 +467,7 @@ pub fn printk_init(buffer: &amp;&#39;static mut [u8], info: FrameBufferInfo) {
     }
 
 
+    <span class="doccomment">/// Prints an individual character on the screen</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">putch</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">c</span>: <span class="ident">char</span>) {
         <span class="kw">match</span> <span class="ident">c</span> {
             <span class="string">&#39;\n&#39;</span> =&gt; <span class="self">self</span>.<span class="ident">next_line</span>(),
