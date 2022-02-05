@@ -1,0 +1,23 @@
+[package]
+name = "printk"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+log = "^0.4.14"
+
+[dependencies.spinning_top]
+git = "https://github.com/rust-osdev/spinning_top"
+features = ["nightly"]
+
+[dependencies.conquer-once]
+version = "^0.3.2"
+default-features = false
+
+[dependencies.noto-sans-mono-bitmap]
+git = "https://github.com/phip1611/noto-sans-mono-bitmap-rs"
+
+[dependencies.bootloader]
+git = "https://github.com/rust-osdev/bootloader"
