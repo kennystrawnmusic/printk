@@ -1,6 +1,6 @@
 /*!
  A standalone, `#![no_std]`-friendly `Logger` crate.
- Based on the design of the logger built into `rust-osdev/bootloader` and can be used by default in any kerne;.
+ Based on the design of the logger built into `rust-osdev/bootloader` and can be used by default in any kernel.
 
  To use this crate, specify it as a dependency in your kernel's `Cargo.toml`, then initialize it.
 
