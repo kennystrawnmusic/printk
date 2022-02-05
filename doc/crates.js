@@ -1,1 +1,0 @@
-window.ALL_CRATES = ["bootloader","cfg_if","conquer_once","conquer_util","lock_api","log","noto_sans_mono_bitmap","printk","scopeguard","spinning_top"];

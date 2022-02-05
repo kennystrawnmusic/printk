@@ -1,1 +1,0 @@
-initSidebarItems({"macro":[["entry_point","Defines the entry point function."]],"mod":[["boot_info","Contains the boot information struct sent by the bootloader to the kernel on startup."]],"struct":[["Config","Allows configuring the bootloader behavior."]]});
