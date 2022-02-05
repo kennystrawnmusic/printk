@@ -1,6 +1,7 @@
 [package]
 name = "printk"
-version = "0.1.3"
+version = "0.1.4"
+keywords = ["no_std", "logger"]
 description  = "A standalone, `#![no_std]`-friendly `Logger` crate."
 documentation = "https://docs.rs/printk"
 license = "MIT"
