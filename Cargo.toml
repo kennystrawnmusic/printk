@@ -7,17 +7,13 @@ edition = "2021"
 
 [dependencies]
 log = "^0.4.14"
+bootloader = "^0.10.0"
+noto-sans-mono-bitmap = "^0.1.5"
 
 [dependencies.spinning_top]
-git = "https://github.com/rust-osdev/spinning_top"
+version = "^0.2.4"
 features = ["nightly"]
 
 [dependencies.conquer-once]
 version = "^0.3.2"
 default-features = false
-
-[dependencies.noto-sans-mono-bitmap]
-git = "https://github.com/phip1611/noto-sans-mono-bitmap-rs"
-
-[dependencies.bootloader]
-git = "https://github.com/rust-osdev/bootloader"
