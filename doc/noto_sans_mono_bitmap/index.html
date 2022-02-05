@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Pre-rasterized bitmap font from “Noto Sans Mono”, an open font from Google. "><meta name="keywords" content="rust, rustlang, rust-lang, noto_sans_mono_bitmap"><title>noto_sans_mono_bitmap - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../dark.css" disabled><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script src="../crates.js"></script><script defer src="../main.js"></script>
+    <noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../noto_sans_mono_bitmap/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"></h2>
+    </nav>
+    <nav class="sidebar"><a class="sidebar-logo" href="../noto_sans_mono_bitmap/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"><a href="#">Crate noto_sans_mono_bitmap</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.1.5</li><li><a id="all-types" href="all.html">All Items</a></li></div></ul><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#functions">Functions</a></li></ul></div><div id="sidebar-vars" data-name="noto_sans_mono_bitmap" data-ty="mod" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../noto_sans_mono_bitmap/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
+    <h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">noto_sans_mono_bitmap</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/noto_sans_mono_bitmap/lib.rs.html#1-351">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Pre-rasterized bitmap font from “Noto Sans Mono”, an open font from Google. </p>
+<ul>
+<li>Original font files taken from: <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Mono">https://fonts.google.com/noto/specimen/Noto+Sans+Mono</a></li>
+<li>License: SIL Open Font License (OFL) <a href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL">https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL</a></li>
+</ul>
+<p>Strictly speaking, this crate is more than a basic bitmap font, because it encodes each pixel
+as a byte and not as a bit, which results in a much nicer result on the screen.</p>
+<h3 id="tldr" class="section-header"><a href="#tldr">TL;DR</a></h3>
+<ul>
+<li>✅ <code>no_std</code>, zero allocations, no floating point operations</li>
+<li>✅ most important symbols, numbers, and letters as pre-rasterized bitmap</li>
+<li>✅ Noto Sans Mono font as base</li>
+<li>✅ different sizes and font weights (light, normal, bold)</li>
+<li>✅ nice anti-aliasing/smoothing and better looking than legacy bitmap fonts</li>
+<li>✅ every pixel is encoded in a byte (0-255) and not a bit, which results in a much nicer result on the screen.</li>
+<li>✅ relevant font sizes, such as 14, 16, 24, 32, and 64px (as optional build time features)</li>
+</ul>
+<h3 id="terminology-is-bitmap-font-the-right-term" class="section-header"><a href="#terminology-is-bitmap-font-the-right-term">Terminology: Is Bitmap Font The Right Term?</a></h3>
+<p>Legacy (8x8) bitmap fonts usually refer to a font where each symbol is encoded in 8 bytes. The ones in a byte
+(<code>0b00110000</code>) means “pixel on” and the zeroes’ means “pixel off”. However, my bitmap font actually encodes the
+intensity of each pixel as a byte from 0 to 255. Hence, this is less size efficient than legacy bitmap fonts,
+but looks much better. Thus, I still use the term bitmap font, because that term is used and known when talking
+about pre-rasterized fonts/font rendering in an early stage of the boot process.</p>
+<h3 id="when-to-use-this-crate" class="section-header"><a href="#when-to-use-this-crate">When To Use This Crate</a></h3>
+<p>If you develop a kernel, you usually don’t want to use the FPU (i.e. only soft float),
+because otherwise you need to save the floating point registers on every context switch,
+which is expensive. Because nice font rendering of TTF fonts heavily relies on many
+floating point operations, this is not optimal inside a kernel (noticeable performance penalties).
+Furthermore, in my experience it was hard to get some of the popular font rasterization
+crates to compile with CPU features “+soft-float” and “-sse” (at least on x86_64).</p>
+<p>Legacy 8x8 bitmap fonts are ugly when printed to the screen. My crate can be seen as a nice
+replacement with very nice anti-aliasing.</p>
+<p>If you have a standard environment or support for floating point operations, you might want
+to rasterize the font by yourself with the crate <code>fontdue</code> and some TTF fonts rather than
+using my crate.</p>
+<h3 id="minimal-code-example" class="section-header"><a href="#minimal-code-example">Minimal Code Example</a></h3>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">noto_sans_mono_bitmap</span>::{<span class="ident">get_bitmap</span>, <span class="ident">get_bitmap_width</span>, <span class="ident">BitmapHeight</span>, <span class="ident">FontWeight</span>};
+
+<span class="comment">// Minimal example.</span>
+
+<span class="kw">let</span> <span class="ident">width</span> <span class="op">=</span> <span class="ident">get_bitmap_width</span>(<span class="ident">FontWeight::Regular</span>, <span class="ident">BitmapHeight::Size16</span>);
+<span class="macro">println!</span>(
+    <span class="string">&quot;Each char of the mono-spaced font will be {}px in width if the font \
+     weight={:?} and the bitmap height={}&quot;</span>,
+    <span class="ident">width</span>,
+    <span class="ident">FontWeight::Regular</span>,
+    <span class="ident">BitmapHeight::Size16</span>.<span class="ident">val</span>()
+);
+<span class="kw">let</span> <span class="ident">bitmap_char</span> <span class="op">=</span> <span class="ident">get_bitmap</span>(<span class="string">&#39;A&#39;</span>, <span class="ident">FontWeight::Regular</span>, <span class="ident">BitmapHeight::Size16</span>).<span class="ident">expect</span>(<span class="string">&quot;unsupported char&quot;</span>);
+<span class="macro">println!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">bitmap_char</span>);
+<span class="kw">for</span> (<span class="ident">row_i</span>, <span class="ident">row</span>) <span class="kw">in</span> <span class="ident">bitmap_char</span>.<span class="ident">bitmap</span>().<span class="ident">iter</span>().<span class="ident">enumerate</span>() {
+    <span class="kw">for</span> (<span class="ident">col_i</span>, <span class="ident">pixel</span>) <span class="kw">in</span> <span class="ident">row</span>.<span class="ident">iter</span>().<span class="ident">enumerate</span>() {
+        <span class="macro">println!</span>(<span class="string">&quot;[{:02}][{:02}]: {:03}&quot;</span>, <span class="ident">row_i</span>, <span class="ident">col_i</span>, <span class="ident">pixel</span>);
+    }
+}</code></pre></div>
+<h3 id="cargo-build-time-features" class="section-header"><a href="#cargo-build-time-features">Cargo Build Time Features</a></h3>
+<p>If all Cargo features are available, this bitmap fonts supports <code>light</code>, <code>regular</code>,
+and <code>bold</code>, but no <code>italic</code> style, because Noto Sans Mono doesn’t have an italic
+TTF file. The rasterization was done with the awesome <a href="https://crates.io/crates/fontdue">fontdue-Crate</a>.</p>
+<p>By default, all sizes and font styles/weights are included via the cargo feature <code>all</code>.
+This can be restricted by only using features such as <code>regular</code> and <code>size_14</code>. Anyhow,
+a test of mine showed, that including all features in a release build only increases the
+file size by a few dozen to a few hundred kilobytes. The Rust compiler is really smart
+throwing out unused parts of the bitmap font, even if they are included as dependency.
+Your binary will not be bloated by a few megabytes, according to my findings.</p>
+<p>The bitmap font includes the following unicode range:</p>
+<ul>
+<li>BASIC LATIN,</li>
+<li>LATIN 1 Supplement</li>
+<li>LATIN EXTENDED-A</li>
+</ul>
+<p>This means unicode symbols from <code>0 .. 0x17f</code>, hence letters
+and symbols from a QWERTZ/QWERTY keyboard plus symbols such as
+Ö, Ä, and Ü. Control characters are not included.</p>
+</div></details><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.BitmapChar.html" title="noto_sans_mono_bitmap::BitmapChar struct">BitmapChar</a></div><div class="item-right docblock-short"><p>Describes the relevant information for a rendered char of the bitmap font.</p>
+</div></div></div><h2 id="enums" class="small-section-header"><a href="#enums">Enums</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="enum" href="enum.BitmapHeight.html" title="noto_sans_mono_bitmap::BitmapHeight enum">BitmapHeight</a></div><div class="item-right docblock-short"><p>The height of the bitmap font. The font size will be a a few
+percent less, because each bitmap letter contains vertical padding
+for proper alignment of chars (i.e. ÄyA). The width of each bitmap
+character will be also less than the height, because there is no
+horizontal padding included.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="enum" href="enum.FontWeight.html" title="noto_sans_mono_bitmap::FontWeight enum">FontWeight</a></div><div class="item-right docblock-short"><p>Supported font weights.</p>
+</div></div></div><h2 id="functions" class="small-section-header"><a href="#functions">Functions</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.get_bitmap.html" title="noto_sans_mono_bitmap::get_bitmap fn">get_bitmap</a></div><div class="item-right docblock-short"><p>Returns a <a href="struct.BitmapChar.html" title="BitmapChar"><code>BitmapChar</code></a> for the given char, <a href="enum.FontWeight.html" title="FontWeight"><code>FontWeight</code></a>, and <a href="enum.BitmapHeight.html" title="BitmapHeight"><code>BitmapHeight</code></a>.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.get_bitmap_width.html" title="noto_sans_mono_bitmap::get_bitmap_width fn">get_bitmap_width</a></div><div class="item-right docblock-short"><p>Returns the width in pixels a char will occupy on the screen. The width is constant for all
+characters regarding the same combination of <a href="enum.FontWeight.html" title="FontWeight"><code>FontWeight</code></a> and <a href="enum.BitmapHeight.html" title="BitmapHeight"><code>BitmapHeight</code></a>. The width is
+a few percent smaller than the height of each char</p>
+</div></div></div></section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="noto_sans_mono_bitmap" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (08df8b81d 2022-01-30)" ></div>
+</body></html>
