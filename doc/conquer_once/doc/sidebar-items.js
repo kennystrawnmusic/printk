@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Lazy","A type for lazy initialization of e.g. global static variables, which provides the same functionality as the `lazy_static!` macro."],["OnceCell","An interior mutability cell type which allows synchronized one-time initialization and read-only access exclusively after initialization."]]});

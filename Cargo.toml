@@ -2,6 +2,7 @@
 name = "printk"
 version = "0.1.2"
 description  = "A standalone, `#![no_std]`-friendly `Logger` crate."
+documentation = "https://docs.rs/printk"
 license = "MIT"
 edition = "2021"
 
