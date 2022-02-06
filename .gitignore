@@ -1,5 +1,6 @@
 /target
 Cargo.lock
 /release
+/debug
 rustc_info.json
 rustdoc_fingerprint.json
