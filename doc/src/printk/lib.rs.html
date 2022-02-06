@@ -272,7 +272,7 @@ The logger needs to be initialized in order to be used. To do that, one must fir
 ```
 pub static PRINTK: OnceCell&lt;LockedPrintk&gt; = OnceCell::uninit();
 ```
-After this, the `log` crate needs to be attached to it. This requires the following 2 steps:
+After this, the `log` crate needs to be attached to it. This requires the following 3 steps:
 
 1. Use the `get_or_init` method to unwrap the `LockedPrintk` object from its outer OnceCell
 2. Use `log::set_logger` to tell the `log` crate what to attach to
