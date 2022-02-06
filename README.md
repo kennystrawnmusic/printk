@@ -26,3 +26,4 @@ pub fn printk_init(buffer: &'static mut [u8], info: FrameBufferInfo) {
 
 # Contributing
 If you have any functionality to add, feel free to [create a pull request](https://github.com/kennystrawnmusic/printk/pulls). I'll gladly test and accept it. Also, if you have any bugs to report, that is also what GitHub is for.
+Also, if you're an employer in the Mission Viejo, California area, feel free to reach out to me [on Indeed](https://my.indeed.com/p/kenneths-fijbvmb). I've got push notifications set up there, so any message you send through Indeed will definitely be seen.
