@@ -276,7 +276,7 @@ After this, the `log` crate needs to be attached to it. This requires the follow
 
 1. Use the `get_or_init` method to unwrap the `LockedPrintk` object from its outer OnceCell
 2. Use `log::set_logger` to tell the `log` crate what to attach to
-3. Use `log::set_max_level to tell the `log` crate how many levels of logging you want to do
+3. Use `log::set_max_level` to tell the `log` crate how many levels of logging you want to do
 
 Here&#39;s an example function demonstrating how this is done in pure Rust:
 ```
