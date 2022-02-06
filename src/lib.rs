@@ -27,7 +27,6 @@ pub fn printk_init(buffer: &'static mut [u8], info: FrameBufferInfo) {
 
 # Contributing
 If you have any functionality to add, feel free to [create a pull request](https://github.com/kennystrawnmusic/printk/pulls). I'll gladly test and accept it. Also, if you have any bugs to report, that is also what GitHub is for.
-```
  */
 
 #![no_std]
