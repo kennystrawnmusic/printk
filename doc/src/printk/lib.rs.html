@@ -262,6 +262,9 @@
 <span id="257">257</span>
 <span id="258">258</span>
 <span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
+<span id="262">262</span>
 </pre><pre class="rust"><code><span class="doccomment">/*!
  A standalone, `#![no_std]`-friendly `Logger` crate.
 Based on the design of the logger built into the [bootloader](https://github.com/rust-osdev/bootloader) crate and meant to be used in OS kernels.
@@ -292,7 +295,10 @@ pub fn printk_init(buffer: &amp;&#39;static mut [u8], info: FrameBufferInfo) {
 # Contributing
 If you have any functionality to add, feel free to [create a pull request](https://github.com/kennystrawnmusic/printk/pulls). I&#39;ll gladly test and accept it. If you have any bugs to report, that is also what GitHub is for.
 Also, if you&#39;re an employer in the Mission Viejo, California area, feel free to reach out to me [on Indeed](https://my.indeed.com/p/kenneths-fijbvmb). I&#39;ve got push notifications set up there, so any message you send through Indeed will definitely be seen.
- */</span>
+
+# Example output
+![../qemu-example.png]
+*/</span>
 
 <span class="attribute">#![<span class="ident">no_std</span>]</span>
 
