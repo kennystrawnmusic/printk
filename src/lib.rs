@@ -73,12 +73,12 @@ pub struct LockedPrintk(Spinlock<Printk>);
 impl LockedPrintk {
     
     // Constructor
-    #[allow(dead_code)] //TODO: use this in main.rs
+    #[allow(dead_code)]
     pub fn new(buf: &'static mut [u8], i: FrameBufferInfo) -> Self {
         LockedPrintk(Spinlock::new(Printk::new(buf, i)))
     }
 
-    #[allow(dead_code)] //TODO: use this in main.rs
+    #[allow(dead_code)]
     pub unsafe fn force_unlock(&self) {
         self.0.force_unlock()
     }
@@ -92,7 +92,7 @@ impl log::Log for LockedPrintk {
 
     fn log(&self, record: &log::Record) {
         let mut printk = self.0.lock();
-        writeln!(printk, "{}:    {}", record.level(), record.args()).unwrap();
+        writeln!(printk, "{}", record.args()).unwrap();
         printk.move_down(2);
     }
 
@@ -152,7 +152,7 @@ impl Printk {
             },
 
             //TODO: use embedded-graphics to solve this problem
-            _ => panic!("Kernel panic -- not syncing: Unknown pixel format")
+            _ => panic!("Unknown pixel format")
         };
 
         // Number of bytes in a pixel (4 on my machine)

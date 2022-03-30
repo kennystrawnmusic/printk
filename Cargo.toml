@@ -16,7 +16,7 @@ bootloader = "^0.10.0"
 noto-sans-mono-bitmap = "^0.1.5"
 
 [dependencies.spinning_top]
-version = "^0.2.4"
+version = "^0.2.5"
 features = ["nightly"]
 
 [dependencies.conquer-once]
