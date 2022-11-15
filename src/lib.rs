@@ -37,8 +37,8 @@ Also, if you're an employer in the Mission Viejo, California area, feel free to 
 
 #[allow(unused_imports)]
 use {
-    bootloader::{
-        boot_info::{
+    bootloader_api::{
+        info::{
             FrameBufferInfo,
             PixelFormat,
         }
@@ -139,11 +139,11 @@ impl Printk {
 
         let color = match self.info.pixel_format {
 
-            PixelFormat::RGB => { 
+            PixelFormat::Rgb => { 
                 [intensity, intensity, intensity/2, 0]
             },
 
-            PixelFormat::BGR => {
+            PixelFormat::Bgr => {
                 [intensity/2, intensity, intensity, 0]
             },
 
@@ -217,12 +217,12 @@ impl Printk {
 
     /// Gets the width of the framebuffer
     pub fn width(&self) -> usize {
-        self.info.horizontal_resolution
+        self.info.width
     }
 
     /// Gets the height of the framebuffer
     pub fn height(&self) -> usize {
-        self.info.vertical_resolution
+        self.info.height
     }
 
 
