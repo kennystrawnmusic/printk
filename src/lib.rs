@@ -56,10 +56,10 @@ use {
         ptr,
     },
     noto_sans_mono_bitmap::{
-        get_bitmap,
-        get_bitmap_width,
-        BitmapChar,
-        BitmapHeight,
+        get_raster,
+        get_raster_width,
+        RasterizedChar,
+        RasterHeight,
         FontWeight,
     },
     spinning_top::{
@@ -170,10 +170,10 @@ impl Printk {
     }
 
     /// Renders characters from the `noto-sans-mono-bitmap` crate
-    pub fn render(&mut self, rendered: BitmapChar) {
+    pub fn render(&mut self, rendered: RasterizedChar) {
         
         // Loop through lines
-        for (y, ln) in rendered.bitmap().iter().enumerate() {
+        for (y, ln) in rendered.raster().iter().enumerate() {
 
             // Loop through characters on each line
             for (x, col) in ln.iter().enumerate() {
@@ -199,7 +199,7 @@ impl Printk {
 
     /// Moves down one line
     pub fn next_line(&mut self) {
-        self.move_down(14);
+        self.move_down(16);
         self.home();
     }
 
@@ -236,13 +236,13 @@ impl Printk {
                     self.next_line();
 
                 }
-                const LETTER_WIDTH: usize = get_bitmap_width(FontWeight::Regular, BitmapHeight::Size14);
+                const LETTER_WIDTH: usize = get_raster_width(FontWeight::Regular, RasterHeight::Size16);
 
                 if self.y >= (self.height() - LETTER_WIDTH) {
                     self.clear();
                 }
 
-                let mapped = get_bitmap(c, FontWeight::Regular, BitmapHeight::Size14).unwrap();
+                let mapped = get_raster(c, FontWeight::Regular, RasterHeight::Size16).unwrap();
                 self.render(mapped);
             }
         }
