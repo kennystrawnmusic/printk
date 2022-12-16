@@ -1,6 +1,6 @@
 [package]
 name = "printk"
-version = "0.3.1"
+version = "0.3.2"
 keywords = ["no_std", "logger"]
 description  = "A standalone, `#![no_std]`-friendly `Logger` crate."
 documentation = "https://docs.rs/printk"
@@ -14,6 +14,7 @@ edition = "2021"
 log = "^0.4.14"
 bootloader_api = "^0.11.0"
 noto-sans-mono-bitmap = "^0.2.0"
+x86_64 = "0.14.10"
 
 [dependencies.spinning_top]
 version = "^0.2.4"

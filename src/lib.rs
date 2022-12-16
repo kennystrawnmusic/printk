@@ -35,6 +35,8 @@ Also, if you're an employer in the Mission Viejo, California area, feel free to 
 
 #![no_std]
 
+use x86_64::instructions::interrupts::without_interrupts;
+
 #[allow(unused_imports)]
 use {
     bootloader_api::{
@@ -255,7 +257,10 @@ unsafe impl Sync for Printk {}
 impl fmt::Write for Printk {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         for c in s.chars() {
-            self.putch(c)
+            // prevent deadlocks
+            without_interrupts(|| {
+                self.putch(c)
+            })
         }
         Ok(())
     }
